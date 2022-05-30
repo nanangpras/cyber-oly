@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('customer', App\Http\Controllers\CustomerController::class);
+Route::get('/fetch-data', [App\Http\Controllers\CustomerController::class, 'fetchdata'])->name('customer.fetch');
